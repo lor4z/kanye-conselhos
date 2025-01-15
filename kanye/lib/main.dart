@@ -10,16 +10,18 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<StartKanye> createState() => _MyWidgetState();
+  State<MyApp> createState() =>
+      _MyAppState(); // Altere para retornar _MyAppState
 }
 
-class _MyWidgetState extends State<StartKanye> {
+class _MyAppState extends State<MyApp> {
+  // Alterar para corresponder ao MyApp
   bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 5), () {
       if (mounted) {
         // Verifica se o widget ainda está montado
         setState(() {
@@ -32,6 +34,7 @@ class _MyWidgetState extends State<StartKanye> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: isLoading ? KanyeIdeias() : StartKanye(),
     );
   }
